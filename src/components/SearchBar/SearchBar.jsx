@@ -17,22 +17,14 @@ class SearchBar extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.filteredSong(this.state)
+        this.props.filteredSong(this.state.searchTerm)
     }
 
     render() { 
         return ( 
-            <form onSubmit={(event) => this.handleSubmit(event)}>
-                <label>Title</label>
-                <input name='title' onChange={this.handleChange} value={this.state.searchTerm}/> 
-                <label>Artist</label>
-                <input name='artist' onChange={this.handleChange} value={this.state.searchTerm}/> 
-                <label>Album</label>
-                <input name='album' onChange={this.handleChange} value={this.state.searchTerm}/> 
-                <label>Release Date</label>
-                <input name='release_date' onChange={this.handleChange} value={this.state.searchTerm}/> 
-                <label>Genre</label>
-                <input name='genre' onChange={this.handleChange} value={this.state.searchTerm}/> 
+            <form onSubmit={this.handleSubmit}>
+                <label>Search Music Library:</label>
+                <input name='searchTerm' onChange={this.handleChange} value={this.state.searchTerm}/> <br />
                 <button type='submit'>Filter Table</button>
             </form> 
          );

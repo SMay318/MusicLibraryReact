@@ -33,7 +33,7 @@ class App extends Component {
     render() { 
         return ( 
             <div>
-                <MusicTable  musicList={this.state.musicList} deleteSong={this.deleteASong}/>
+                <MusicTable musicList={this.state.musicList} deleteASong={this.deleteSong}/>
             </div>
          );
     }

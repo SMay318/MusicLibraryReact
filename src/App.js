@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import MusicTable from './components/MusicTable/MusicTable';
+import SongForm from './components/SongForm/SongForm';
 
 class App extends Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class App extends Component {
     componentDidMount(){
         this.getMusic();
         this.deleteSong();
+        this.createSong();
       }
       
     getMusic = async () => {
@@ -30,9 +32,18 @@ class App extends Component {
         });
     }
 
+    createSong = async (song) => {
+        let response = await axios.post("http://127.0.0.1:8000/music/", song);
+        this.getMusic()
+        this.setState({
+            createNewSong: response.data
+        })
+    }
+
     render() { 
         return ( 
             <div>
+                <SongForm createNewSong={this.createSong}/>
                 <MusicTable musicList={this.state.musicList} deleteASong={this.deleteSong}/>
             </div>
          );

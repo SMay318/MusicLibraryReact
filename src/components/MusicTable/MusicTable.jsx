@@ -13,17 +13,21 @@ const MusicTable = (props) => {
         <th>Genre</th>
       </tr>
     </thead>
-    {props.musicList.map((song) => (
+    {props.musicList.map((song) => {
+      return (
     <tbody>
       <tr>
-        <td>{song.title}</td>
-        <td>{song.artist}</td>
-        <td>{song.album}</td>
-        <td>{song.release_date}</td>
-        <td>{song.genre}</td>
+          <td>{song.title}</td>
+          <td>{song.artist}</td>
+          <td>{song.album}</td>
+          <td>{song.release_date}</td>
+          <td>{song.genre}</td>
+          <button onClick={() => props.deleteASong(song.id)}>Delete</button>
        </tr> 
     </tbody>
-      ))}
+      )
+      })}
+
   </table>
 </div>
 

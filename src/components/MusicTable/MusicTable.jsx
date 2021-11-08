@@ -13,7 +13,7 @@ const MusicTable = (props) => {
         <th>Genre</th>
       </tr>
     </thead>
-    {props.musicList.map((song) => {
+    {props.songList.map((song) => {
       return (
     <tbody>
       <tr>

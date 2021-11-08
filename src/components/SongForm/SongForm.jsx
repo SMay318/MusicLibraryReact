@@ -8,7 +8,7 @@ class SongForm extends Component {
             artist: '',
             album: '',
             release_date: '',
-            genre: ''
+            genre: '',
          }
     }
 
@@ -20,22 +20,22 @@ class SongForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.createNewSong(this.state)
+        this.props.newSong(this.state)
     }
 
     render() { 
         return ( 
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={(event) => this.handleSubmit(event)}>
                 <label>Title</label>
-                <input type='text' name='title' onChange={this.handleChange} /> <br />
+                <input name='title' onChange={this.handleChange} value={this.state.title}/> 
                 <label>Artist</label>
-                <input type='text' name='artist' onChange={this.handleChange} /> <br />
+                <input name='artist' onChange={this.handleChange} value={this.state.artist}/> 
                 <label>Album</label>
-                <input type='text' name='album' onChange={this.handleChange} /> <br />
+                <input name='album' onChange={this.handleChange} value={this.state.album}/> 
                 <label>Release Date</label>
-                <input type='text' name='release_date' onChange={this.handleChange} /> <br />
+                <input name='release_date' onChange={this.handleChange} value={this.state.release_date}/> 
                 <label>Genre</label>
-                <input type='text' name='genre' onChange={this.handleChange} /> <br />
+                <input name='genre' onChange={this.handleChange} value={this.state.genre}/> 
                 <button type='submit'>Add Song</button>
             </form>
          );
